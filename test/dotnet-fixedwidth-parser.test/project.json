@@ -1,0 +1,33 @@
+{
+  "version": "1.0.0-*",
+  "copyright": "Copyright (C) 2017 Eddie Stanley",
+  "authors": [ "Eddie Stanley" ],
+  "title": ".NET Core fixed-width parser test suite",
+  "name": "dotnet-fixedwidth-parser.test",
+  "dependencies": {
+    "dotnet-fixedwidth-parser" : {
+      "target": "project"
+    },
+    "NUnit": "3.5.0",
+    "Moq": "4.6.36-*",
+    "dotnet-test-nunit": "3.4.0-beta-3"
+  },
+
+  "testRunner": "nunit",
+
+  "buildOptions": {
+    "debugType": "portable",
+    "emitEntryPoint": false
+  },
+  "frameworks": {
+    "netcoreapp1.1": {
+      "dependencies": {
+        "Microsoft.NETCore.App": {
+          "type": "platform",
+          "version": "1.1.0"
+        }
+      },
+      "imports": "dnxcore50"
+    }
+  }
+}

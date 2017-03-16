@@ -1,0 +1,27 @@
+{
+  "version": "1.0.0-*",
+  "copyright": "Copyright (C) 2017 Eddie Stanley",
+  "authors": [ "Eddie Stanley" ],
+  "title": ".NET Core fixed-width parser library",
+  "name": "dotnet-fixedwidth-parser",
+  "buildOptions": {
+    "debugType": "portable",
+    "emitEntryPoint": false
+  },
+  "dependencies": {
+    "dotnet-fixedwidth-common" : {
+      "target": "project"
+    },
+  },
+  "frameworks": {
+    "netcoreapp1.1": {
+      "dependencies": {
+        "Microsoft.NETCore.App": {
+          "type": "platform",
+          "version": "1.1.0"
+        }
+      },
+      "imports": "dnxcore50"
+    }
+  }
+}
