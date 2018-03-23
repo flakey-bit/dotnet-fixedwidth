@@ -234,11 +234,7 @@ namespace FlakeyBit.Libraries.Tests.FixedWidth.Parser
         public void TestDumpLineRecordOk()
         {
             var dumpText = FixedWidthParser.DumpRecord(new TestInputRecordDefinition(), "Eddie Stanley       071983-11-07");
-            var expected = @"Field 'NameField', width: 20. Parsed value: 'Eddie Stanley', chars so far: 20
-Field 'FamilySizeField', width: 2. Parsed value: '7', chars so far: 22
-Field 'BirthdayField', width: 10. Parsed value: '" + new DateTime(1983, 11, 7).ToString(CultureInfo.CurrentCulture) + @"', chars so far: 32
-32 characters in total";
-            System.Console.Out.WriteLine(dumpText);
+            var expected = ("Field 'NameField', width: 20. Parsed value: 'Eddie Stanley', chars so far: 20\nField 'FamilySizeField', width: 2. Parsed value: '7', chars so far: 22\nField 'BirthdayField', width: 10. Parsed value: '" + new DateTime(1983, 11, 7).ToString(CultureInfo.CurrentCulture) + "', chars so far: 32\n32 characters in total").Replace("\n", Environment.NewLine);
             Assert.That(dumpText, Is.EqualTo(expected));
         }
 
@@ -246,10 +242,7 @@ Field 'BirthdayField', width: 10. Parsed value: '" + new DateTime(1983, 11, 7).T
         public void TestDumpLineTooShort()
         {
             var dumpText = FixedWidthParser.DumpRecord(new TestInputRecordDefinition(), "Eddie Stanley       091983-11-");
-            var expected = @"Field 'NameField', width: 20. Parsed value: 'Eddie Stanley', chars so far: 20
-Field 'FamilySizeField', width: 2. Parsed value: '9', chars so far: 22
-Field 'BirthdayField' (10 bytes) would exceed the line length (30)!
-(8 remaining characters) 1983-11-";
+            var expected = "Field 'NameField', width: 20. Parsed value: 'Eddie Stanley', chars so far: 20\nField 'FamilySizeField', width: 2. Parsed value: '9', chars so far: 22\nField 'BirthdayField' (10 bytes) would exceed the line length (30)!\n(8 remaining characters) 1983-11-".Replace("\n", Environment.NewLine);
             Assert.That(dumpText, Is.EqualTo(expected));
         }
 
@@ -257,9 +250,7 @@ Field 'BirthdayField' (10 bytes) would exceed the line length (30)!
         public void TestDumpFieldParsingFailed()
         {
             var dumpText = FixedWidthParser.DumpRecord(new TestInputRecordDefinition(), "Eddie Stanley       XX1983-11-07");
-            var expected = @"Field 'NameField', width: 20. Parsed value: 'Eddie Stanley', chars so far: 20
-Parsing failed for field 'FamilySizeField', width: 2. Raw value was 'XX'. Message: Input string was not in a correct format.
-(12 remaining characters) XX1983-11-07";
+            var expected = "Field 'NameField', width: 20. Parsed value: 'Eddie Stanley', chars so far: 20\nParsing failed for field 'FamilySizeField', width: 2. Raw value was 'XX'. Message: Input string was not in a correct format.\n(12 remaining characters) XX1983-11-07".Replace("\n", Environment.NewLine);
             Assert.That(dumpText, Is.EqualTo(expected));
         }
 
@@ -267,10 +258,7 @@ Parsing failed for field 'FamilySizeField', width: 2. Raw value was 'XX'. Messag
         public void TestDumpLineTooLong()
         {
             var dumpText = FixedWidthParser.DumpRecord(new TestInputRecordDefinition(), "Eddie Stanley       071983-11-07potatoapplepear");
-            var expected = @"Field 'NameField', width: 20. Parsed value: 'Eddie Stanley', chars so far: 20
-Field 'FamilySizeField', width: 2. Parsed value: '7', chars so far: 22
-Field 'BirthdayField', width: 10. Parsed value: '" + new DateTime(1983, 11, 7).ToString(CultureInfo.CurrentCulture) + @"', chars so far: 32
-(15 remaining characters) potatoapplepear";
+            var expected = ("Field 'NameField', width: 20. Parsed value: 'Eddie Stanley', chars so far: 20\nField 'FamilySizeField', width: 2. Parsed value: '7', chars so far: 22\nField 'BirthdayField', width: 10. Parsed value: '" + new DateTime(1983, 11, 7).ToString(CultureInfo.CurrentCulture) + "', chars so far: 32\n(15 remaining characters) potatoapplepear").Replace("\n", Environment.NewLine);
             Assert.That(dumpText, Is.EqualTo(expected));
         }
 

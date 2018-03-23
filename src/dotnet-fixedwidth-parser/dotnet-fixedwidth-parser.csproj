@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	<VersionSuffix Condition="'$(VersionSuffix)' == '' ">0</VersionSuffix>
+	<Version>1.0.0.$(VersionSuffix)</Version>
+    <Copyright>Copyright (C) 2017 Eddie Stanley</Copyright>
+    <AssemblyTitle>.NET Core fixed-width parser library</AssemblyTitle>
+    <Authors>Eddie Stanley</Authors>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
+    <DebugType>portable</DebugType>
+    <AssemblyName>dotnet-fixedwidth-parser</AssemblyName>
+    <OutputType>Library</OutputType>
+    <PackageId>dotnet-fixedwidth-parser</PackageId>
+    <PackageTargetFallback>$(PackageTargetFallback);dnxcore50</PackageTargetFallback>
+    <RuntimeFrameworkVersion>1.1.1</RuntimeFrameworkVersion>
+    <Company>Flakey Bit</Company>
+    <Description>Library to parse fixed-width data into C# POCO objects</Description>
+    <PackageProjectUrl>https://github.com/flakey-bit/dotnet-fixedwidth</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/flakey-bit/dotnet-fixedwidth/blob/master/LICENSE</PackageLicenseUrl>
+    <RepositoryUrl>https://github.com/flakey-bit/dotnet-fixedwidth</RepositoryUrl>
+    <RepositoryType>Git</RepositoryType>
+    <PackageTags>fixed-width parser</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\dotnet-fixedwidth-common\dotnet-fixedwidth-common.csproj" />
+  </ItemGroup>
+
+</Project>

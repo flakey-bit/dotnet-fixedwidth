@@ -3,3 +3,6 @@
 **/obj/
 TestResult.xml
 **/.DS_Store
+.vs
+*.suo
+*.user

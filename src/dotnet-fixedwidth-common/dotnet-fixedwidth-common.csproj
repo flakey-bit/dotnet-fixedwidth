@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	<VersionSuffix Condition="'$(VersionSuffix)' == '' ">0</VersionSuffix>
+	<Version>1.0.0.$(VersionSuffix)</Version>
+    <Copyright>Copyright (C) 2017 Eddie Stanley</Copyright>
+    <AssemblyTitle>.NET Core fixed-width common library</AssemblyTitle>
+    <Authors>Eddie Stanley</Authors>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
+    <DebugType>portable</DebugType>
+    <AssemblyName>dotnet-fixedwidth-common</AssemblyName>
+    <OutputType>Library</OutputType>
+    <PackageId>dotnet-fixedwidth-common</PackageId>
+    <PackageTargetFallback>$(PackageTargetFallback);dnxcore50</PackageTargetFallback>
+    <RuntimeFrameworkVersion>1.1.1</RuntimeFrameworkVersion>
+  </PropertyGroup>
+
+</Project>
